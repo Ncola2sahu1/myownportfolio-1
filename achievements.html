@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Achievements — Sahil Chauhan</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .ach-intro {
+    max-width: 560px;
+    color: var(--ink2);
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 3.5rem;
+  }
+
+  /* Timeline layout */
+  .timeline {
+    position: relative;
+    max-width: 720px;
+    margin-bottom: 4rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .tl-item {
+    display: flex; gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .tl-dot-wrap {
+    flex-shrink: 0;
+    display: flex; flex-direction: column; align-items: center;
+    padding-top: 0.2rem;
+  }
+
+  .tl-dot {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--accent2);
+    border: 2px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    z-index: 1;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .tl-item:hover .tl-dot { background: var(--accent); transform: scale(1.1); }
+
+  .tl-card {
+    flex: 1;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem 1.6rem;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .tl-item:hover .tl-card {
+    border-color: var(--accent);
+    transform: translateX(6px);
+    box-shadow: 0 6px 24px rgba(29,78,216,0.07);
+  }
+
+  .tl-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;
+  }
+
+  .tl-title { font-size: 1rem; font-weight: 600; }
+
+  .tl-year {
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: var(--accent2);
+    padding: 0.22rem 0.7rem;
+    border-radius: 100px;
+  }
+
+  .tl-desc { font-size: 0.875rem; color: var(--ink2); font-weight: 300; }
+
+  .tl-badge {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.22rem 0.7rem;
+    border-radius: 100px;
+  }
+
+  .badge-cert  { background: #dcfce7; color: #166534; }
+  .badge-award { background: #fef3c7; color: #92400e; }
+  .badge-acad  { background: var(--accent2); color: var(--accent); }
+  .badge-todo  { background: var(--bg3); color: var(--ink3); border: 1px dashed var(--border); }
+
+  /* Certs grid */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .cert-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .cert-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+
+  .cert-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: 11px;
+    background: var(--accent2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  .cert-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+  .cert-card p  { font-size: 0.78rem; color: var(--ink3); }
+
+  .cert-card.placeholder {
+    border-style: dashed;
+    opacity: 0.6;
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-card {
+    background: var(--bg2);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label { font-size: 0.8rem; color: var(--ink3); font-weight: 400; }
+
+  .section-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 3rem 0 1.25rem;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">SC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="achievements.html" class="active">Achievements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+  <div class="page-eyebrow">Milestones</div>
+  <h1 class="page-title">My <em>Achievements</em></h1>
+  <div class="divider"></div>
+
+  <p class="ach-intro reveal">
+    Every big journey starts with small wins. Here's a record of my milestones — academic, technical, and personal — since starting my CSE journey.
+  </p>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card reveal reveal-d1">
+      <div class="stat-num">1st</div>
+      <div class="stat-label">Year of B.Tech CSE</div>
+    </div>
+    <div class="stat-card reveal reveal-d2">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Mini Projects Built</div>
+    </div>
+    <div class="stat-card reveal reveal-d3">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Lines of Code to Write</div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="section-sub reveal">Journey so far</div>
+  <div class="timeline">
+
+    <div class="tl-item reveal reveal-d1">
+      <div class="tl-dot-wrap"><div class="tl-dot">🎓</div></div>
+      <div class="tl-card">
+        <div class="tl-meta">
+          <span class="tl-title">Enrolled in B.Tech CSE</span>
+          <span class="tl-year">2024</span>
+        </div>
+        <p class="tl-desc">Officially started my Computer Science Engineering journey. First step into the world of tech.</p>
+        <span class="tl-badge badge-acad">Academic</span>
+      </div>
+    </div>
+
+    <div class="tl-item reveal reveal-d2">
+      <div class="tl-dot-wrap"><div class="tl-dot">🌐</div></div>
+      <div class="tl-card">
+        <div class="tl-meta">
+          <span class="tl-title">Built My First Web Page</span>
+          <span class="tl-year">2024</span>
+        </div>
+        <p class="tl-desc">Wrote my first HTML & CSS page from scratch — a personal bio page. Small win, big feeling!</p>
+        <span class="tl-badge badge-cert">Project</span>
+      </div>
+    </div>
+
+    <div class="tl-item reveal reveal-d3">
+      <div class="tl-dot-wrap"><div class="tl-dot">⚡</div></div>
+      <div class="tl-card">
+        <div class="tl-meta">
+          <span class="tl-title">Started Learning JavaScript</span>
+          <span class="tl-year">2025</span>
+        </div>
+        <p class="tl-desc">Jumped into JavaScript — DOM, events, and building interactive projects. Currently in progress!</p>
+        <span class="tl-badge badge-award">Milestone</span>
+      </div>
+    </div>
+
+    <div class="tl-item reveal reveal-d4">
+      <div class="tl-dot-wrap">
+        <div class="tl-dot" style="background:var(--bg2); border-color: var(--border); font-size:1.2rem;">+</div>
+      </div>
+      <div class="tl-card" style="border-style: dashed; opacity: 0.6;">
+        <div class="tl-meta">
+          <span class="tl-title">Add Your Achievement Here</span>
+          <span class="tl-year">2025</span>
+        </div>
+        <p class="tl-desc">Hackathon, college event, internship, certification — replace this with your real milestone!</p>
+        <span class="tl-badge badge-todo">Coming Soon</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Certifications -->
+  <div class="section-sub reveal">Certifications</div>
+  <div class="cert-grid">
+    <div class="cert-card reveal reveal-d1">
+      <div class="cert-icon">📜</div>
+      <div>
+        <h4>Add Certification</h4>
+        <p>e.g. freeCodeCamp · Responsive Web Design · 2025</p>
+      </div>
+    </div>
+    <div class="cert-card reveal reveal-d2">
+      <div class="cert-icon">🏅</div>
+      <div>
+        <h4>Add Certification</h4>
+        <p>e.g. Coursera · Python for Everybody · 2025</p>
+      </div>
+    </div>
+    <div class="cert-card reveal reveal-d3 placeholder">
+      <div class="cert-icon">➕</div>
+      <div>
+        <h4>Your Next Certificate</h4>
+        <p>More coming soon as I keep learning!</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">Sahil Chauhan © 2025 · B.Tech CSE '28</footer>
+
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('visible')), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

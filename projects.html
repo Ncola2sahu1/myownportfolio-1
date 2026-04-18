@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects — Sahil Chauhan</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .projects-intro {
+    max-width: 560px;
+    color: var(--ink2);
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 3.5rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .proj-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+    display: flex; flex-direction: column;
+  }
+
+  .proj-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 40px rgba(29,78,216,0.09);
+  }
+
+  /* Thumbnail */
+  .proj-thumb {
+    height: 180px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .proj-thumb::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.5;
+  }
+
+  .proj-thumb-icon {
+    font-size: 2.5rem;
+    position: relative; z-index: 1;
+  }
+
+  .proj-thumb-label {
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink3);
+    background: var(--bg);
+    border: 1px dashed var(--border);
+    padding: 0.25rem 0.7rem;
+    border-radius: 6px;
+    position: relative; z-index: 1;
+  }
+
+  /* Status badge */
+  .proj-status {
+    position: absolute; top: 0.75rem; right: 0.75rem; z-index: 2;
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.28rem 0.7rem;
+    border-radius: 100px;
+  }
+
+  .status-done     { background: #dcfce7; color: #166534; }
+  .status-wip      { background: #fef3c7; color: #92400e; }
+  .status-planned  { background: var(--bg3); color: var(--ink3); }
+
+  /* Body */
+  .proj-body {
+    padding: 1.4rem;
+    flex: 1;
+    display: flex; flex-direction: column;
+  }
+
+  .proj-body h3 {
+    font-size: 1.05rem; font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .proj-body p {
+    font-size: 0.85rem;
+    color: var(--ink2);
+    font-weight: 300;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+
+  .proj-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .proj-tag {
+    font-size: 0.68rem; font-weight: 500;
+    color: var(--accent);
+    background: var(--accent2);
+    padding: 0.22rem 0.65rem;
+    border-radius: 100px;
+  }
+
+  .proj-link {
+    font-size: 0.78rem; font-weight: 600;
+    color: var(--ink); text-decoration: none;
+    display: flex; align-items: center; gap: 0.3rem;
+    transition: color 0.18s;
+  }
+  .proj-link:hover { color: var(--accent); }
+
+  /* CTA strip */
+  .cta-strip {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1.5rem; flex-wrap: wrap;
+  }
+
+  .cta-strip h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem; font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .cta-strip p { font-size: 0.875rem; color: var(--ink2); font-weight: 300; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">SC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+  <div class="page-eyebrow">What I've built</div>
+  <h1 class="page-title">My <em>Projects</em></h1>
+  <div class="divider"></div>
+
+  <p class="projects-intro reveal">
+    These are projects I've built while learning. They may be small, but each one taught me something new. As I grow, so will this page!
+  </p>
+
+  <div class="projects-grid">
+
+    <div class="proj-card reveal reveal-d1">
+      <div class="proj-thumb">
+        <span class="proj-status status-done">Completed</span>
+        <div class="proj-thumb-icon">🌐</div>
+        <div class="proj-thumb-label">Replace with screenshot</div>
+      </div>
+      <div class="proj-body">
+        <h3>Personal Portfolio</h3>
+        <p>My personal website to showcase my skills and projects. Built from scratch using HTML, CSS, and a little JavaScript.</p>
+        <div class="proj-footer">
+          <div class="proj-tags">
+            <span class="proj-tag">HTML</span>
+            <span class="proj-tag">CSS</span>
+            <span class="proj-tag">JavaScript</span>
+          </div>
+          <a href="#" class="proj-link">View →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal reveal-d2">
+      <div class="proj-thumb">
+        <span class="proj-status status-done">Completed</span>
+        <div class="proj-thumb-icon">📋</div>
+        <div class="proj-thumb-label">Replace with screenshot</div>
+      </div>
+      <div class="proj-body">
+        <h3>To-Do List App</h3>
+        <p>A clean task manager app built while practising JavaScript DOM manipulation, event listeners, and local storage.</p>
+        <div class="proj-footer">
+          <div class="proj-tags">
+            <span class="proj-tag">HTML</span>
+            <span class="proj-tag">CSS</span>
+            <span class="proj-tag">JavaScript</span>
+          </div>
+          <a href="#" class="proj-link">View →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal reveal-d3">
+      <div class="proj-thumb">
+        <span class="proj-status status-done">Completed</span>
+        <div class="proj-thumb-icon">🧮</div>
+        <div class="proj-thumb-label">Replace with screenshot</div>
+      </div>
+      <div class="proj-body">
+        <h3>Calculator</h3>
+        <p>A basic calculator app — my first real JavaScript logic project. Helped me understand functions and event handling.</p>
+        <div class="proj-footer">
+          <div class="proj-tags">
+            <span class="proj-tag">HTML</span>
+            <span class="proj-tag">CSS</span>
+            <span class="proj-tag">JavaScript</span>
+          </div>
+          <a href="#" class="proj-link">View →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal reveal-d1">
+      <div class="proj-thumb">
+        <span class="proj-status status-wip">In Progress</span>
+        <div class="proj-thumb-icon">🌤️</div>
+        <div class="proj-thumb-label">Coming soon</div>
+      </div>
+      <div class="proj-body">
+        <h3>Weather App</h3>
+        <p>Currently building a weather app using a public API. Learning how to fetch data from APIs and display it dynamically.</p>
+        <div class="proj-footer">
+          <div class="proj-tags">
+            <span class="proj-tag">JavaScript</span>
+            <span class="proj-tag">API</span>
+            <span class="proj-tag">CSS</span>
+          </div>
+          <a href="#" class="proj-link" style="color:var(--ink3); pointer-events: none;">WIP</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal reveal-d2">
+      <div class="proj-thumb">
+        <span class="proj-status status-planned">Planned</span>
+        <div class="proj-thumb-icon">🚀</div>
+        <div class="proj-thumb-label">Coming soon</div>
+      </div>
+      <div class="proj-body">
+        <h3>Your Next Project</h3>
+        <p>Add your upcoming project here. Replace this card with something you're planning to build — a blog, a game, an app!</p>
+        <div class="proj-footer">
+          <div class="proj-tags">
+            <span class="proj-tag">?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cta-strip reveal">
+    <div>
+      <h3>Have a project idea? 💡</h3>
+      <p>I'm always looking to collaborate or get feedback on my work.</p>
+    </div>
+    <a href="contact.html" class="btn btn-dark">Let's talk →</a>
+  </div>
+</main>
+
+<footer class="footer">Sahil Chauhan © 2025 · B.Tech CSE '28</footer>
+
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('visible')), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Sahil Chauhan</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  /* Photo card */
+  .photo-card {
+    position: sticky; top: calc(var(--nav-h) + 2rem);
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .avatar-box {
+    aspect-ratio: 1;
+    border-radius: 20px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.5rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .avatar-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 600;
+    color: var(--ink3);
+    font-style: italic;
+  }
+
+  .avatar-replace {
+    position: absolute; bottom: 0.75rem; left: 50%; transform: translateX(-50%);
+    font-size: 0.62rem; font-weight: 500; letter-spacing: 0.06em;
+    color: var(--ink3);
+    background: var(--bg);
+    border: 1px dashed var(--border);
+    padding: 0.28rem 0.7rem;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .info-pills {
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+
+  .info-pill {
+    display: flex; align-items: center; gap: 0.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    font-size: 0.83rem;
+  }
+
+  .info-pill-icon { font-size: 1rem; }
+  .info-pill-label { color: var(--ink3); font-size: 0.7rem; display: block; }
+  .info-pill-val   { font-weight: 500; color: var(--ink); }
+
+  /* Content */
+  .about-body p {
+    font-size: 1.05rem;
+    color: var(--ink2);
+    margin-bottom: 1.25rem;
+    font-weight: 300;
+  }
+
+  .about-body p strong { font-weight: 600; color: var(--ink); }
+
+  .about-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 2.5rem 0 1rem;
+  }
+
+  .interest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .interest-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    font-size: 0.875rem; font-weight: 500;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .interest-item:hover { border-color: var(--accent); transform: translateX(4px); }
+  .interest-icon { font-size: 1.1rem; }
+
+  .tags-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+
+  @media (max-width: 800px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .photo-card { position: static; }
+    .interest-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">SC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+  <div class="page-eyebrow">Who I am</div>
+  <h1 class="page-title">About <em>Me</em></h1>
+  <div class="divider"></div>
+
+  <div class="about-grid">
+
+    <!-- Left: photo + info -->
+    <div class="photo-card reveal">
+      <div class="avatar-box">
+        <div class="avatar-initials">SC</div>
+        <div class="avatar-replace">↑ Replace with your photo</div>
+      </div>
+      <div class="info-pills">
+        <div class="info-pill">
+          <span class="info-pill-icon">🎓</span>
+          <div>
+            <span class="info-pill-label">Degree</span>
+            <span class="info-pill-val">B.Tech CSE</span>
+          </div>
+        </div>
+        <div class="info-pill">
+          <span class="info-pill-icon">📅</span>
+          <div>
+            <span class="info-pill-label">Year</span>
+            <span class="info-pill-val">1st Year · 2024–2028</span>
+          </div>
+        </div>
+        <div class="info-pill">
+          <span class="info-pill-icon">📍</span>
+          <div>
+            <span class="info-pill-label">Location</span>
+            <span class="info-pill-val">India</span>
+          </div>
+        </div>
+        <div class="info-pill">
+          <span class="info-pill-icon">💻</span>
+          <div>
+            <span class="info-pill-label">Focus</span>
+            <span class="info-pill-val">Web Development</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: bio -->
+    <div class="about-body">
+      <p class="reveal reveal-d1">
+        Hey! I'm <strong>Sahil Chauhan</strong> — a 1st year Computer Science & Engineering student who is completely falling in love with web development. I'm passionate about building things on the internet and learning how the web works from the ground up.
+      </p>
+      <p class="reveal reveal-d2">
+        My journey into tech started with curiosity — I always wondered how websites and apps were made. Now I'm actively learning HTML, CSS, and JavaScript, and every line of code I write feels like a small victory.
+      </p>
+      <p class="reveal reveal-d3">
+        I'm a firm believer that <strong>consistency beats talent</strong>. I might be just starting out, but I show up every day, learn something new, and try to build something — no matter how small.
+      </p>
+
+      <h3 class="reveal">What I'm interested in</h3>
+      <div class="interest-grid">
+        <div class="interest-item reveal reveal-d1"><span class="interest-icon">🌐</span> Web Development</div>
+        <div class="interest-item reveal reveal-d2"><span class="interest-icon">🎨</span> UI/UX Design</div>
+        <div class="interest-item reveal reveal-d3"><span class="interest-icon">🧩</span> Problem Solving</div>
+        <div class="interest-item reveal reveal-d4"><span class="interest-icon">📱</span> App Development</div>
+        <div class="interest-item reveal reveal-d1"><span class="interest-icon">🤖</span> AI & Tech Trends</div>
+        <div class="interest-item reveal reveal-d2"><span class="interest-icon">📚</span> Continuous Learning</div>
+      </div>
+
+      <h3 class="reveal">A few things about me</h3>
+      <div class="tags-wrap reveal">
+        <span class="tag">Night owl coder 🦉</span>
+        <span class="tag">Tutorial binge-watcher</span>
+        <span class="tag">Dark mode enthusiast</span>
+        <span class="tag">Future full-stack dev</span>
+        <span class="tag">Side project dreamer</span>
+        <span class="tag">Coffee ☕</span>
+      </div>
+
+      <div style="margin-top: 2.5rem;" class="reveal">
+        <a href="contact.html" class="btn btn-dark">Let's Connect →</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">Sahil Chauhan © 2025 · B.Tech CSE '28</footer>
+
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('visible')), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

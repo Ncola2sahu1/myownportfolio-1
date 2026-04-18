@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Skills — Sahil Chauhan</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+  .skills-intro {
+    max-width: 580px;
+    color: var(--ink2);
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 3.5rem;
+  }
+
+  /* Category label */
+  .cat-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  /* Skill cards grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 28px rgba(29,78,216,0.08);
+  }
+
+  .skill-card-top {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .sk-icon {
+    width: 42px; height: 42px;
+    border-radius: 11px;
+    background: var(--accent2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+  }
+
+  .sk-name   { font-size: 0.95rem; font-weight: 600; }
+  .sk-level  { font-size: 0.72rem; color: var(--ink3); font-weight: 400; }
+
+  /* Progress bar */
+  .sk-bar-wrap {
+    height: 4px;
+    background: var(--bg2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.9rem;
+  }
+
+  .sk-bar {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--accent);
+    width: 0%;
+    transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .sk-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .sk-tag {
+    font-size: 0.7rem; font-weight: 500;
+    color: var(--ink2);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
+  }
+
+  /* Currently learning banner */
+  .learning-banner {
+    margin-top: 3rem;
+    background: var(--ink);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 2rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .learning-banner h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 0.4rem;
+  }
+
+  .learning-banner p {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+
+  .learning-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+  .lpill {
+    font-size: 0.78rem; font-weight: 500;
+    color: var(--ink);
+    background: #fff;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+  }
+
+  @media (max-width: 600px) {
+    .learning-banner { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">SC<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html" class="active">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+  <div class="page-eyebrow">What I know</div>
+  <h1 class="page-title">My <em>Skills</em></h1>
+  <div class="divider"></div>
+
+  <p class="skills-intro reveal">
+    I'm just getting started — but every skill listed here is something I've actively practised, not just heard about. I believe in learning by building, and this list is growing every week.
+  </p>
+
+  <div class="cat-label reveal">Frontend</div>
+  <div class="skills-grid">
+    <div class="skill-card reveal reveal-d1" data-progress="70">
+      <div class="skill-card-top">
+        <div class="sk-icon">🌐</div>
+        <div>
+          <div class="sk-name">HTML5</div>
+          <div class="sk-level">Comfortable</div>
+        </div>
+      </div>
+      <div class="sk-bar-wrap"><div class="sk-bar"></div></div>
+      <div class="sk-card-tags">
+        <span class="sk-tag">Semantic HTML</span>
+        <span class="sk-tag">Forms</span>
+        <span class="sk-tag">Accessibility</span>
+      </div>
+    </div>
+    <div class="skill-card reveal reveal-d2" data-progress="60">
+      <div class="skill-card-top">
+        <div class="sk-icon">🎨</div>
+        <div>
+          <div class="sk-name">CSS3</div>
+          <div class="sk-level">Comfortable</div>
+        </div>
+      </div>
+      <div class="sk-bar-wrap"><div class="sk-bar"></div></div>
+      <div class="sk-card-tags">
+        <span class="sk-tag">Flexbox</span>
+        <span class="sk-tag">Grid</span>
+        <span class="sk-tag">Animations</span>
+        <span class="sk-tag">Responsive</span>
+      </div>
+    </div>
+    <div class="skill-card reveal reveal-d3" data-progress="35">
+      <div class="skill-card-top">
+        <div class="sk-icon">⚡</div>
+        <div>
+          <div class="sk-name">JavaScript</div>
+          <div class="sk-level">Learning</div>
+        </div>
+      </div>
+      <div class="sk-bar-wrap"><div class="sk-bar"></div></div>
+      <div class="sk-card-tags">
+        <span class="sk-tag">DOM</span>
+        <span class="sk-tag">Events</span>
+        <span class="sk-tag">ES6 basics</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cat-label reveal">Programming</div>
+  <div class="skills-grid">
+    <div class="skill-card reveal reveal-d1" data-progress="55">
+      <div class="skill-card-top">
+        <div class="sk-icon">💻</div>
+        <div>
+          <div class="sk-name">C Language</div>
+          <div class="sk-level">Basics</div>
+        </div>
+      </div>
+      <div class="sk-bar-wrap"><div class="sk-bar"></div></div>
+      <div class="sk-card-tags">
+        <span class="sk-tag">Loops</span>
+        <span class="sk-tag">Functions</span>
+        <span class="sk-tag">Arrays</span>
+      </div>
+    </div>
+    <div class="skill-card reveal reveal-d2" data-progress="30">
+      <div class="skill-card-top">
+        <div class="sk-icon">🐍</div>
+        <div>
+          <div class="sk-name">Python</div>
+          <div class="sk-level">Beginner</div>
+        </div>
+      </div>
+      <div class="sk-bar-wrap"><div class="sk-bar"></div></div>
+      <div class="sk-card-tags">
+        <span class="sk-tag">Syntax</span>
+        <span class="sk-tag">Basics</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cat-label reveal">Tools & Workflow</div>
+  <div class="skills-grid">
+    <div class="skill-card reveal reveal-d1" data-progress="75">
+      <div class="skill-card-top">
+        <div class="sk-icon">🛠️</div>
+        <div>
+          <div class="sk-name">VS Code</div>
+          <div class="sk-level">Daily Use</div>
+        </div>
+      </div>
+      <div class="sk-bar-wrap"><div class="sk-bar"></div></div>
+      <div class="sk-card-tags">
+        <span class="sk-tag">Extensions</span>
+        <span class="sk-tag">Shortcuts</span>
+        <span class="sk-tag">Live Server</span>
+      </div>
+    </div>
+    <div class="skill-card reveal reveal-d2" data-progress="30">
+      <div class="skill-card-top">
+        <div class="sk-icon">🐙</div>
+        <div>
+          <div class="sk-name">Git & GitHub</div>
+          <div class="sk-level">Basics</div>
+        </div>
+      </div>
+      <div class="sk-bar-wrap"><div class="sk-bar"></div></div>
+      <div class="sk-card-tags">
+        <span class="sk-tag">Commits</span>
+        <span class="sk-tag">Push/Pull</span>
+        <span class="sk-tag">Repos</span>
+      </div>
+    </div>
+    <div class="skill-card reveal reveal-d3" data-progress="50">
+      <div class="skill-card-top">
+        <div class="sk-icon">🔍</div>
+        <div>
+          <div class="sk-name">DevTools</div>
+          <div class="sk-level">Comfortable</div>
+        </div>
+      </div>
+      <div class="sk-bar-wrap"><div class="sk-bar"></div></div>
+      <div class="sk-card-tags">
+        <span class="sk-tag">Inspect</span>
+        <span class="sk-tag">Console</span>
+        <span class="sk-tag">Network</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="learning-banner reveal">
+    <div>
+      <h3>Currently Learning 🚀</h3>
+      <p>These are on my active learning roadmap right now</p>
+    </div>
+    <div class="learning-pills">
+      <span class="lpill">JavaScript ES6+</span>
+      <span class="lpill">React.js</span>
+      <span class="lpill">Node.js</span>
+      <span class="lpill">DSA</span>
+      <span class="lpill">Tailwind CSS</span>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">Sahil Chauhan © 2025 · B.Tech CSE '28</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        const bar = e.target.querySelector('.sk-bar');
+        if (bar) {
+          const prog = e.target.dataset.progress || 0;
+          setTimeout(() => { bar.style.width = prog + '%'; }, 200);
+        }
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
